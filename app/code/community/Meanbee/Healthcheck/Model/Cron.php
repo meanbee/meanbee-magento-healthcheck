@@ -35,7 +35,7 @@ class Meanbee_Healthcheck_Model_Cron
 
             try {
                 $this->log(sprintf("%s: Starting check..", $check_name));
-                $check_instance->test();
+                $check_instance->check();
                 $this->log(sprintf("%s: Completed successfully.", $check_name));
             } catch (Exception $e) {
                 $this->log(sprintf("%s: Error during check (%s)", $check_name, $e->getMessage()), Zend_Log::WARN);

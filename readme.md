@@ -28,14 +28,14 @@ Documentation below describes how a developer might go about implementing a chec
 
 A check is a model that implements an interface: `Meanbee_Healthcheck_Model_CheckInterface`.  An abstract check class is provided with useful utility methods in `Meanbee_Healthcheck_Model_Check_Abstract`.
 
-A check must implement a `test` method.  Inside of the `test` method the developer must implement their test logic and notify with an alert if appropriate.
+A check must implement a `check` method.  Inside of the `check` method the developer must implement their test logic and notify with an alert if appropriate.
 
 The following example creates an `alert` and notifies the administrators about the alert.
 
 
     class Meanbee_HealthcheckExample_Model_Check_Test extends Meanbee_Healthcheck_Model_Check_Abstract
     {
-        public function test()
+        public function check()
         {
             $this->log("Starting check..");
 
