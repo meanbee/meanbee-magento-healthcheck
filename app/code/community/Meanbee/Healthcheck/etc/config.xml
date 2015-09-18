@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_Healthcheck>
+            <version>1.0.0</version>
+        </Meanbee_Healthcheck>
+    </modules>
+    <global>
+        <models>
+            <meanbee_healthcheck>
+                <class>Meanbee_Healthcheck_Model</class>
+            </meanbee_healthcheck>
+        </models>
+        <helpers>
+            <meanbee_healthcheck>
+                <class>Meanbee_Healthcheck_Helper</class>
+            </meanbee_healthcheck>
+        </helpers>
+        <template>
+            <email>
+                <meanbee_healthcheck_alert module="meanbee_healthcheck">
+                    <label>Meanbee Healthcheck: Alert Email</label>
+                    <file>meanbee_healthcheck/alert.html</file>
+                    <type>html</type>
+                </meanbee_healthcheck_alert>
+            </email>
+        </template>
+    </global>
+    <crontab>
+        <jobs>
+            <meanbee_healthcheck_run_checks>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>meanbee_healthcheck/cron::runChecks</model>
+                </run>
+            </meanbee_healthcheck_run_checks>
+        </jobs>
+    </crontab>
+    <default>
+        <meanbee_healthcheck>
+            <general>
+                <active>0</active>
+                <notification_emails></notification_emails>
+            </general>
+        </meanbee_healthcheck>
+    </default>
+</config>

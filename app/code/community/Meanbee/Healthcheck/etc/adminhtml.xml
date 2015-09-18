@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <meanbee_healthcheck translate="title" module="meanbee_healthcheck">
+                                        <title>Meanbee Healthcheck Configuration</title>
+                                    </meanbee_healthcheck>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
