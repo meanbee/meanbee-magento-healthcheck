@@ -7,7 +7,12 @@ class Meanbee_Healthcheck_Helper_Alert extends Mage_Core_Helper_Abstract
      */
     public function notify(Meanbee_Healthcheck_Model_Alert $alert)
     {
-        $severity_string = $this->getSeverityAsString($alert->getSeverity());
+        if (!Mage::helper('meanbee_healthcheck/config')->isEnabled()) {
+            return;
+        }
+
+        $severity_string = $alert->getSeverity() ? $this->getSeverityAsString($alert->getSeverity()) : '';
+        $stack_trace_string = $alert->getStackTrace() ? $this->getStackTraceAsString($alert->getStackTrace()) : '';
 
         $email = Mage::getModel('core/email_template')->loadDefault('meanbee_healthcheck_alert');
 
@@ -19,7 +24,7 @@ class Meanbee_Healthcheck_Helper_Alert extends Mage_Core_Helper_Abstract
         $email_variables = array(
             'message'     => $alert->getMessage(),
             'severity'    => $severity_string,
-            'stack_trace' => $this->getStackTraceAsString($alert->getStackTrace())
+            'stack_trace' => $stack_trace_string
         );
 
         $notification_email_addresses = Mage::helper('meanbee_healthcheck/config')->getNotificationEmailAddresses();
