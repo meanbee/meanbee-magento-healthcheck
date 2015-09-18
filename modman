@@ -1,3 +1,3 @@
-app/code/community/Meanbee/Healthcheck/ app/code/community/Meanbee/Healthcheck/
-app/etc/modules/* app/etc/modules/
-app/locale/en_US/template/email/meanbee_healthcheck/ app/locale/en_US/template/email/meanbee_healthcheck/
+src/app/code/community/Meanbee/Healthcheck/ app/code/community/Meanbee/Healthcheck/
+src/app/etc/modules/* app/etc/modules/
+src/app/locale/en_US/template/email/meanbee_healthcheck/ app/locale/en_US/template/email/meanbee_healthcheck/
