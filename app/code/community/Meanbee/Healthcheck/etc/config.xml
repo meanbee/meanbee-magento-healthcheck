@@ -46,4 +46,11 @@
             </general>
         </meanbee_healthcheck>
     </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Meanbee_Healthcheck />
+            </modules>
+        </suite>
+    </phpunit>
 </config>
