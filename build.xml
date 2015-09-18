@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Meanbee_Healthcheck" default="test">
+
+    <property name="dir.vendor_bin" value="${project.basedir}/vendor/bin/" />
+    <property name="dir.project_bin" value="${project.basedir}/bin/" />
+
+    <property name="bin.mage-ci" value="${dir.vendor_bin}/mage-ci" />
+    <property name="bin.modman" value="${dir.project_bin}/modman" />
+    <property name="bin.phpunit" value="${dir.vendor_bin}/phpunit" />
+
+    <property name="magento.version" value="1.9.1.1" />
+    <property name="magento.base_dir" value="${project.basedir}/magento" />
+    <property name="magento.base_url" value="http://dev/null/" />
+
+    <property name="db.name" value="meanbee_healthcheck_test" />
+    <property name="db.user" value="root" />
+    <property name="db.pass" value="toor" />
+
+    <target name="test" depends="test-unit" />
+
+    <target name="test-unit" depends="install-magento,deploy-to-magento">
+        <exec command="${bin.phpunit}" dir="${magento.base_dir}" passthru="true" />
+    </target>
+
+    <target name="install-magento">
+        <if>
+            <not><available type="dir" file="${magento.base_dir}" /></not>
+            <then>
+                <exec command="${bin.mage-ci} install ${magento.base_dir} ${magento.version} ${db.name} -c -t -u ${db.user} -p ${db.pass} -b ${magento.base_url} -r http://mage-ci.firegento.com" passthru="true" checkreturn="true" />
+                <exec command="${bin.mage-ci} install-module ${magento.base_dir} https://github.com/meanbee/EcomDev_PHPUnit.git --branch feature/fix-category-fixture-in-1.5" passthru="true" checkreturn="true" />
+                <exec command="cp ${magento.base_dir}/.modman/EcomDev_PHPUnit/phpunit.xml.dist ${magento.base_dir}/" passthru="true" checkreturn="true" />
+            </then>
+            <else>
+                <echo message="Magento is already installed in ${magento.base_dir}. Skipping.." />
+            </else>
+        </if>
+    </target>
+
+    <target name="deploy-to-magento">
+        <symlink target="../../" link="${magento.base_dir}/.modman/meanbee_core" />
+        <exec command="${bin.modman} deploy meanbee_core" dir="${magento.base_dir}" passthru="true" checkreturn="true" />
+    </target>
+</project>

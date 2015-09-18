@@ -4,10 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5b46f6543f23c038b2071cbddeb5db5c",
-    "content-hash": "f9a76b123ecab5e3b544a73ed21ca652",
+    "hash": "7f6479a6b4408d388f55280faf18c35d",
+    "content-hash": "6e118216ac67e69182a8eaa0e3b300e0",
     "packages": [],
     "packages-dev": [
+        {
+            "name": "firegento/mage-ci",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firegento/MageCI.git",
+                "reference": "e76fa7903c37f89bdad843d4c416f92a5a2eefa7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firegento/MageCI/zipball/e76fa7903c37f89bdad843d4c416f92a5a2eefa7",
+                "reference": "e76fa7903c37f89bdad843d4c416f92a5a2eefa7",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/mage-ci"
+            ],
+            "type": "library",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Chepurnyi",
+                    "email": "ivan.chepurnyi@ecomdev.org",
+                    "homepage": "http://www.ecomdev.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Damian Luszczymak",
+                    "email": "info@icyapp.de",
+                    "homepage": "http://icyapp.de/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Rouven Alexander Rieker",
+                    "email": "therouv@gmail.com",
+                    "homepage": "http://www.itabs.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Magento Continuous Integration Tools",
+            "homepage": "https://github.com/firegento/MageCI",
+            "support": {
+                "source": "https://github.com/firegento/MageCI/tree/master",
+                "issues": "https://github.com/firegento/MageCI/issues"
+            },
+            "time": "2015-04-15 09:55:21"
+        },
         {
             "name": "phpunit/php-code-coverage",
             "version": "2.2.3",
@@ -749,9 +798,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "firegento/mage-ci": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.3.0"
+    },
     "platform-dev": []
 }

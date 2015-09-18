@@ -1,0 +1,42 @@
+language: php
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+env:
+  - MAGENTO_VERSION=1.7.0.2
+  - MAGENTO_VERSION=1.8.1.0
+  - MAGENTO_VERSION=1.9.0.1
+matrix:
+  fast_finish: true
+  exclude:
+    - php: 5.5
+      env: MAGENTO_VERSION=1.7.0.2
+    - php: 5.5
+      env: MAGENTO_VERSION=1.8.1.0
+    - php: 5.6
+      env: MAGENTO_VERSION=1.7.0.2
+    - php: 5.6
+      env: MAGENTO_VERSION=1.8.1.0
+  allow_failures:
+    - php: 5.3
+    - php: 7.0
+    - php: hhvm
+before_script:
+  - mysql -uroot -e "CREATE USER 'magento'@'localhost' IDENTIFIED BY 'magento';"
+  - mysql -uroot -e "GRANT ALL ON magento.* TO 'magento'@'localhost';"
+  - mysql -uroot -e "GRANT ALL ON magento_test.* TO 'magento'@'localhost';"
+  - mysql -uroot -e "FLUSH PRIVILEGES;"
+  - composer selfupdate
+  - composer install --dev --no-interaction
+  - wget http://www.phing.info/get/phing-latest.phar
+  - mv phing-latest.phar phing.phar
+  - chmod +x phing.phar
+  - mkdir bin && cd bin && wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman && cd ..
+  - chmod +x bin/modman
+
+script:
+  - php phing.phar -Ddb.pass='magento' -Ddb.user='magento' -Ddb.name='magento' -Dmagento.version=$MAGENTO_VERSION test

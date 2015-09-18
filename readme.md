@@ -1,5 +1,7 @@
 # Proactive Magento Health Checks
 
+[![Build Status](https://travis-ci.org/meanbee/meanbee-magento-healthcheck.svg)](https://travis-ci.org/meanbee/meanbee-magento-healthcheck)
+
 There are often metrics in a project that dictate the health of an online store, some examples:
 
 * Has there been an order placed in the last hour?
