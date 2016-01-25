@@ -20,7 +20,7 @@ This extension provides a framework for the implementation of proactive Magento 
 * A check is an implementation of `Meanbee_Healthcheck_Model_CheckInterface`
 * Checks are registered with healthcheck through XML configuration
 * Checks are executed every five minutes through a centralised healthcheck cron
-* Checks a responsibile for building an alert (`Meanbee_Healthcheck_Model_Alert`) and passing it through to the notify method (`Meanbee_Healthcheck_Helper_Alert::notify`)
+* Checks are responsibile for building an alert (`Meanbee_Healthcheck_Model_Alert`) and passing it through to the notify method (`Meanbee_Healthcheck_Helper_Alert::notify`)
 
 # Usage
 
