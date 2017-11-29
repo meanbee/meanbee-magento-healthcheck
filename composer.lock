@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f6479a6b4408d388f55280faf18c35d",
-    "content-hash": "6e118216ac67e69182a8eaa0e3b300e0",
+    "hash": "b12144dc31b236bc9f134aa64b7a099e",
+    "content-hash": "fbefdfbeb21ebacf6130938735924835",
     "packages": [],
     "packages-dev": [
         {
@@ -14,12 +14,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/firegento/MageCI.git",
-                "reference": "e76fa7903c37f89bdad843d4c416f92a5a2eefa7"
+                "reference": "1b7843421de3e8704432794b1279339287d3d8c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firegento/MageCI/zipball/e76fa7903c37f89bdad843d4c416f92a5a2eefa7",
-                "reference": "e76fa7903c37f89bdad843d4c416f92a5a2eefa7",
+                "url": "https://api.github.com/repos/firegento/MageCI/zipball/1b7843421de3e8704432794b1279339287d3d8c5",
+                "reference": "1b7843421de3e8704432794b1279339287d3d8c5",
                 "shasum": ""
             },
             "bin": [
@@ -55,7 +55,7 @@
                 "source": "https://github.com/firegento/MageCI/tree/master",
                 "issues": "https://github.com/firegento/MageCI/issues"
             },
-            "time": "2015-04-15 09:55:21"
+            "time": "2016-03-25 20:59:40"
         },
         {
             "name": "phpunit/php-code-coverage",
