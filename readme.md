@@ -34,7 +34,7 @@ A check must implement a `check` method.  Inside of the `check` method the devel
 
 The following example creates an `alert` and notifies the administrators about the alert.
 
-
+```php
     class Meanbee_HealthcheckExample_Model_Check_Test extends Meanbee_Healthcheck_Model_Check_Abstract
     {
         public function check()
@@ -54,11 +54,13 @@ The following example creates an `alert` and notifies the administrators about t
             $this->log("Check complete.");
         }
     }
+```
 
-## Registering the check
+## Registering the check
     
 Next we need to register the check with healthcheck.  This is done through configuration XML.
 
+```xml
     <config>
         ...
         <meanbee_healthcheck>
@@ -72,10 +74,12 @@ Next we need to register the check with healthcheck.  This is done through confi
         </meanbee_healthcheck>
         ...
     </config>
+```
 
 By registering of the checks through XML, the healthcheck extension can pick up any checks in third party extensions.
 
-## Configuration
+
+## Configuration
 
 There are configuration options in `Advanced > Meanbee Healthcheck` to set email addresses for notifications.
 
